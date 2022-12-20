@@ -4,11 +4,14 @@ This is a set of Nix libraries I've written which I don't have a real place
 for, but want to publish. Please feel free to simply vendor them if you'd like.
 My goal is to keep each file self-contained.
 
+The main focus of these so far is tools for the nixpkgs Haskell infrastructure.
+
 ## Contents
 
 ### `some-cabal-hashes.nix`
 
-Super speedy version of `packageSourceOverrides` which does exactly one
+Creates an overlay that sets Haskell packages to some version, like
+`haskell.lib.packageSourceOverrides`, but *way* faster. It does exactly one
 import-from-derivation build, rather than doing one import-from-derivation for
 each overridden package, potentially saving minutes if you have lots of
 overrides.
